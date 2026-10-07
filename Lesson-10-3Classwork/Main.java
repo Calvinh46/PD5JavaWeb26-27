@@ -16,15 +16,15 @@ class Main {
       9 to 16 tickets : each ticket cost $10.50
       over 16 tickts  : each ticket cost $8.50
     */
-  String groupSavings(double tickets){
+  double groupSavings(int tickets){
     if (tickets >= 1 && tickets <=8)
-      return "Cost $11";
+      return 11*tickets;
     else if (tickets >= 9 && tickets <=16)
-      return "Cost $10.50";
+      return 10.5*tickets;
     else if (tickets >=16)
-      return "Cost $8.50";
+      return 8.50*tickets;
     else
-      return "Cost $11";
+      return 0;
   }
   
   
@@ -42,13 +42,13 @@ class Main {
         Otherwise: $0 savings.
     */
 
-  String groceryDiscount(double moneyspent,int cansofbeans){
-    if (moneyspent >= 100 && moneyspent <= 200 && cansofbeans >= 3)
-      return "$10 Savings";
-    else if (moneyspent > 200 && cansofbeans >= 4)
-      return "$20 Savings";
+  double groceryDiscount(double amt,int cans){
+    if (amt>=100&&amt<=200 && cans >= 3)
+      return 10;
+    else if (amt > 200 && cans >= 4)
+      return 25;
     else
-      return "0$ Savings";
+      return 0;
   }
 
 }
