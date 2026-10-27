@@ -8,97 +8,72 @@ class Main {
   void printt(Object o){ System.out.print(o);}
 
   void init(){
-    System.out.println("enter Credit Card Number");
-    String CreditCardType = Input.readString();
-    System.out.println(CreditCardType);
-
-    System.out.println("enter thd Word for Latin Root");
-    String pigLatin = Input.readString();
-    System.out.println(pigLatin);
-
-    System.out.println("enter nyclocation number");
-    String nyclocation = Input.readString();
-    System.out.println(nyclocation);
-
-    System.out.println("enter the Number of the Month ");
-    String getMonth = Input.readString();
-    System.out.println(getMonth);
-
-    System.out.println("Enter Password");
-    String ispasswordcorrect = Input.readString();
-    System.out.println(ispasswordcorrect);
 
 
   }
 
-  String CreditCardType(String cardNumber){
-    if (cardNumber == null) return "Unknown";
-    
-    if (cardNumber.startsWith("4")) {
-        return "Visa";
-    } else if (cardNumber.startsWith("34") || cardNumber.startsWith("37")) {
+  String creditCardType(String num){
+    if(num.substring(0,1).equals("4"))
         return "American Express";
-    } else if (cardNumber.startsWith("36")) {
-        return "Diners Club";
-    } else if (cardNumber.startsWith("51") || cardNumber.startsWith("55")) {
+    else if (num.substring(0,2).equals("34") || num.substring(0,2).equals("37"))
+        return "Visa";
+    else if (num.substring(0,2).equals("51") || num.substring(0,2).equals("55"))
         return "Mastercard";
-    } else if (cardNumber.startsWith("6011") || cardNumber.startsWith("65")) {
+    else if (num.substring(0,2).equals("36"))
+        return "Diner Club";
+    else if (num.substring(0,2).equals("65") || num.substring(0,2).equals("6011"))
         return "Discover";
-    }
-    
-    return "Unknown";
-
+    else
+        return "Unknown card";
   }
 
-    String pigLatin(String word){
-    if (word == null || word.isEmpty()) return word;
+  String pigLatin(String word){
+    return word.substring(1) + word.substring(0,1) + "ay";
+  }
     
-    return word.substring(1) + word.charAt(0) + "ay";
-    }
-    
-    String nycLocate(String zipCode){
-    if (zipCode == null || zipCode.length() < 3) return "Unknown";
-    
-    String prefix = zipCode.substring(0, 3);
-    
-    switch (prefix) {
-        case "100": case "101": case "102":
-            return "Manhattan";
-        case "103":
-            return "Staten Island";
-        case "104":
-            return "Bronx";
-        case "112":
-            return "Brooklyn";
-        case "113": case "114": case "111":
-            return "Queens";
-        default:
-            return "Unknown";
-            
-    }
-
+  String nycLocate(String zip){
+    String pre = zip.substring(0,3);
+    if(pre.equals("100") || pre.equals("101") || pre.equals("102"))
+        return "Manhattan";
+    else if(pre.equals("103"))
+        return "Staten Island";
+    else if(pre.equals("104"))
+        return "Bronx";
+    else if(pre.equals("112"))
+        return "Brooklyn";
+    else if(pre.equals("113") || pre.equals("111") || pre.equals("114"))
+        return "Queens";
+    else
+        return "Unknown";
   }
 
-    String getMonth(String date){
-    if (date == null || date.length() < 2) return "Unknown";
+  String getMonth(String date){
+      String month = date.substring(0, 2);
     
-    String monthPart = date.substring(0, 2);
-    
-    switch (monthPart){
-        case "01": return "January";
-        case "02": return "February";
-        case "03": return "March";
-        case "04": return "April";
-        case "05": return "May";
-        case "06": return "June";
-        case "07": return "July";
-        case "08": return "August";
-        case "09": return "September";
-        case "10": return "October";
-        case "11": return "November";
-        case "12": return "December";
-        default: return "Unknown";
-    }
+      if(month.equals("1"))
+          return "January";
+      else if (month.equals("2"))
+          return "February";
+      else if (month.equals("3"))
+          return "March";
+      else if (month.equals("4"))
+          return "April";
+      else if (month.equals("5"))
+          return "May";
+      else if (month.equals("6"))
+          return "June";
+      else if (month.equals("7"))
+          return "July";
+      else if (month.equals("8"))
+          return "March";
+      else if (month.equals("9"))
+          return "April";
+      else if (month.equals("10"))
+          return "May";
+      else if (month.equals("6"))
+          return "June";
+      else
+          return "Unknown Month";
   }
 
     boolean validatePswd(String password){
