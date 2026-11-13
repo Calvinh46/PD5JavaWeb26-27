@@ -80,7 +80,19 @@ class Main {
 
 
   void init(){
+    int c = 0;
 
+    while( c != 5 ){
+      menu();
+      c = Input.readInt();
+      if(c == 1){
+        print(rollDice());
+      }else if(c == 2){
+        print(drawCard());
+      }else if(c == 3){
+        watchingYou();
+      }
+    }
     
   }
 
