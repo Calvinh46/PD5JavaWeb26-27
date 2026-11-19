@@ -8,25 +8,26 @@ class Main {
 
   void init(){
     //challenge1
-      String[] friend = {"Akash","Alfred","Jeremiah","Jonathan","Levin","Ryan"};
-      print(friend.length);
-      print(friend[friend.length-1]);
+    String[] friend = {"Akash","Alfred","Jeremiah","Jonathan","Levin","Ryan"};
 
       
     //challenge2
-      Double[] c = {21.9, 32.1, 31.3, 28.7, 29.2};
-      print(c[c.length-1]);
+    double[] tempC = {-4.5,0,23,34,5,10};
 
+    double[] tempF = convert(tempC);
     }
   
-  void Friendvalue(String[] friend){
-    for(int x=0; x<=friend.length-1; x++){
-      print(friend[x]);
+  
+
+  double[] convert(double[] temp){
+
+    double[] farhen = new double[temp.length];
+    for(int x=0; x<=temp.length-1;x++){
+      farhen[x] = celsiusToFarhenheit(temp[x]);
     }
+    return farhen;
   }
   
-
-
   double celsiusToFarhenheit(double c){
         return c*9/5+32;
   }
